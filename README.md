@@ -1,5 +1,7 @@
 # Locket Gold Unlock With Username
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ftrongthaohub%2FUpLocket&env=EMAIL,PASSWORD,TELEGRAM_BOT_TOKEN,TELEGRAM_CHAT_ID)
+
 Unlock Locket Gold premium features **with just a username** — no password required! Built with Flask, featuring an intelligent queue management system and beautiful glassmorphism UI.
 
 ![Locket Gold](https://img.shields.io/badge/Locket-Gold-FFD700?style=for-the-badge)
@@ -90,15 +92,16 @@ Real-time queue position updates with countdown timer and progress bar.
 
 Dự án này đã được cấu hình sẵn để deploy nhanh lên Vercel:
 
-1. **Push code lên GitHub**: Tạo một repo mới và push toàn bộ code lên.
-2. **Import vào Vercel**: Truy cập [Vercel Dashboard](https://vercel.com), chọn **Add New Project** và trỏ tới repo GitHub của bạn.
-3. **Cấu hình biến môi trường (Environment Variables)**:
-   Trong bước cấu hình, hãy thêm 2 biến sau:
-   - `EMAIL`: Email tài khoản Locket của bạn.
-   - `PASSWORD`: Mật khẩu tài khoản Locket của bạn.
-4. **Deploy**: Nhấn nút **Deploy** và đợi trong giây lát.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ftrongthaohub%2FUpLocket&env=EMAIL,PASSWORD,TELEGRAM_BOT_TOKEN,TELEGRAM_CHAT_ID)
 
-> **Note**: Vercel sẽ tự động sử dụng cấu hình trong `vercel.json` để chạy ứng dụng Python.
+1. **Nhấn nút Deploy ở trên**.
+2. **Kết nối với GitHub**: Vercel sẽ yêu cầu bạn clone repo này vào tài khoản của mình.
+3. **Cấu hình biến môi trường**: Nhập các biến sau:
+   - `EMAIL`: Email tài khoản Locket.
+   - `PASSWORD`: Mật khẩu tài khoản Locket.
+   - `TELEGRAM_BOT_TOKEN`: Token của Bot Telegram (tùy chọn).
+   - `TELEGRAM_CHAT_ID`: ID chat Telegram để nhận thông báo (tùy chọn).
+4. **Xong!**: Ứng dụng sẽ tự động được build và chạy.
 
 ## Usage
 

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>PayloadContent</key>
+    <array>
+      <dict>
+        <key>DNSSettings</key>
+        <dict>
+          <key>DNSProtocol</key>
+          <string>HTTPS</string>
+          <key>ServerAddresses</key>
+          <array/>
+          <key>ServerURL</key>
+          <string>https://dns.nextdns.io/ca31cd</string>
+        </dict>
+        <key>OnDemandRules</key>
+        <array>
+          <dict>
+            <key>Action</key>
+            <string>Connect</string>
+            <key>InterfaceTypeMatch</key>
+            <string>WiFi</string>
+          </dict>
+          <dict>
+            <key>Action</key>
+            <string>Connect</string>
+            <key>InterfaceTypeMatch</key>
+            <string>Cellular</string>
+          </dict>
+          <dict>
+            <key>Action</key>
+            <string>Disconnect</string>
+          </dict>
+        </array>
+        <key>PayloadDescription</key>
+        <string>Configures device to use Locket Widget  Encrypted DNS over HTTPS</string>
+        <key>PayloadDisplayName</key>
+        <string>Block Revoke Locket(TrThaoDev)</string>
+        <key>PayloadIdentifier</key>
+        <string>com.apple.dnsSettings.managed.a238192d-7700-46ba-8106-47b42cdc0918</string>
+        <key>PayloadType</key>
+        <string>com.apple.dnsSettings.managed</string>
+        <key>PayloadUUID</key>
+        <string>f6915459-9c02-4a7a-80d3-b9e8f6fd1ed7</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>ProhibitDisablement</key>
+        <false/>
+      </dict>
+    </array>
+    <key>PayloadDescription</key>
+    <string>Developer By TrThaoDev</string>
+    <key>PayloadDisplayName</key>
+    <string>Block Revoked Locket</string>
+    <key>PayloadIdentifier</key>
+    <string>com.notjakob.apple-dns.ed0a1b7f-e34d-4530-9cfc-cf2879b106ab</string>
+    <key>PayloadRemovalDisallowed</key>
+    <false/>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>44dd7775-d19e-4716-8a72-ed2990139cdb</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+  </dict>
+</plist>

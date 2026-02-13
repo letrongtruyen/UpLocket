@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory
 from auth import Auth
 from api import LocketAPI
 import json
@@ -262,6 +262,13 @@ def refresh_api_token():
     except Exception as e:
         print(f"Failed to refresh API token: {e}")
         return False
+
+
+@app.route("/download-config")
+def download_config():
+    return send_from_directory(
+        "static", "locket.mobileconfig", mimetype="application/x-apple-aspen-config"
+    )
 
 
 @app.route("/")
