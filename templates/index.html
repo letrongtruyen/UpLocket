@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locket Gold Unlocker - Minimalism</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0B0C10;
+            --surface: #1B1D23;
+            --primary: #FFD700;
+            --primary-soft: rgba(255, 215, 0, 0.1);
+            --border: rgba(255, 255, 255, 0.06);
+            --text: #F8F9FA;
+            --text-muted: #8E9196;
+            --ease: cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+            animation: fadeIn 0.8s var(--ease);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Branding */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+            background: var(--primary);
+            border-radius: 18px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+            font-size: 24px;
+            font-weight: 800;
+            color: #000;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Main Card */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 32px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            margin-left: 4px;
+        }
+
+        .input-pill {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            transition: var(--ease) 0.3s;
+        }
+
+        .input-pill:focus-within {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        input {
+            background: none;
+            border: none;
+            color: #fff;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: inherit;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Primary Button */
+        .btn-primary {
+            width: 100%;
+            background: var(--primary);
+            color: #000;
+            border: none;
+            border-radius: 16px;
+            padding: 18px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            background: #FFEA70;
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Secondary Info */
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .info-pill {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 20px;
+        }
+
+        .info-pill h3 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-pill p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .config-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 10px;
+            border-radius: 10px;
+            transition: 0.2s;
+        }
+
+        .config-link:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Loader */
+        .spinner {
+            display: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-top-color: #000;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Custom SweetAlert */
+        .clean-popup {
+            background: #1B1D23 !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 24px !important;
+        }
+
+        .clean-confirm {
+            background: var(--primary) !important;
+            color: #000 !important;
+            font-weight: 700 !important;
+            border-radius: 12px !important;
+            padding: 12px 24px !important;
+        }
+
+        .clean-cancel {
+            background: rgba(255, 255, 255, 0.05) !important;
+            color: #fff !important;
+            border-radius: 12px !important;
+            padding: 12px 24px !important;
+            margin-right: 10px !important;
+        }
+
+        /* User Preview */
+        .user-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 16px;
+            border-radius: 16px;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .user-card img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #333;
+        }
+
+        .user-card div h4 {
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .user-card div p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Queue Visuals */
+        .queue-wrap {
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .q-pos {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .q-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+
+        .q-bar-bg {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .q-bar-fill {
+            height: 100%;
+            background: var(--primary);
+            width: 0;
+            transition: 1s var(--ease);
+        }
+
+        .q-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        footer a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">L</div>
+            <h1>Locket Gold</h1>
+            <p>Nâng cấp tài khoản đơn giản & gọn gàng</p>
+        </header>
+
+        <div class="card">
+            <div class="input-group">
+                <label for="username">Tên người dùng</label>
+                <div class="input-pill">
+                    <input type="text" id="username" placeholder="Nhập @username của bạn..." autocomplete="off">
+                </div>
+            </div>
+
+            <button class="btn-primary" id="btnAction" onclick="checkUser()">
+                <span id="btnText">Tiếp Tục</span>
+                <div class="spinner" id="btnLoader"></div>
+            </button>
+
+            <a href="https://www.mediafire.com/file/tv62ueesnqejx1l/locket.mobileconfig/file" class="config-link"
+                target="_blank">
+                Tải cấu hình chống thu hồi →
+            </a>
+        </div>
+
+        <div class="info-section">
+            <div class="info-pill">
+                <h3>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 16v-4M12 8h.01" />
+                    </svg>
+                    Hướng dẫn
+                </h3>
+                <p>Nhập username, xác nhận tài khoản và chờ trong giây lát để hệ thống xử lý nâng cấp lên Gold.</p>
+            </div>
+            <div class="info-pill">
+                <h3>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path
+                            d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                        <line x1="12" y1="9" x2="12" y2="13" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                    Lưu ý
+                </h3>
+                <p>Chỉ dành cho iOS. Đừng đăng xuất sau khi nâng cấp để tránh mất trạng thái Gold.</p>
+            </div>
+        </div>
+
+        <footer>
+            Thiết kế bởi <a href="https://coderent.one" target="_blank">Trong Thao</a> &copy; 2024
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        const swalConfig = {
+            customClass: {
+                popup: 'clean-popup',
+                confirmButton: 'clean-confirm',
+                cancelButton: 'clean-cancel'
+            },
+            buttonsStyling: false
+        };
+
+        async function checkUser() {
+            const input = document.getElementById('username');
+            const user = input.value.trim();
+            const btn = document.getElementById('btnAction');
+            const loader = document.getElementById('btnLoader');
+            const text = document.getElementById('btnText');
+
+            if (!user) {
+                Swal.fire({ icon: 'warning', title: 'Thông báo', text: 'Vui lòng nhập username.', ...swalConfig });
+                return;
+            }
+
+            btn.disabled = true;
+            loader.style.display = 'block';
+            text.style.display = 'none';
+
+            try {
+                const res = await fetch('/api/get-user-info', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: user }),
+                });
+                const data = await res.json();
+
+                if (res.ok && data.success) {
+                    confirmUser(data.data);
+                } else {
+                    Swal.fire({ icon: 'error', title: 'Thất bại', text: data.msg || "Không tìm thấy người dùng.", ...swalConfig });
+                }
+            } catch (e) {
+                Swal.fire({ icon: 'error', title: 'Lỗi', text: 'Mất kết nối server.', ...swalConfig });
+            } finally {
+                btn.disabled = false;
+                loader.style.display = 'none';
+                text.style.display = 'block';
+            }
+        }
+
+        function confirmUser(u) {
+            const name = `${u.first_name || ''} ${u.last_name || ''}`.trim() || 'Người dùng Locket';
+            const ava = u.profile_picture_url || 'https://play-lh.googleusercontent.com/eRZLg00mAQGayCrFjDBklPIpW3qFHcmUs8PUQA4z7hVe-cDKMcRqecVHONAIexJGJZM';
+
+            Swal.fire({
+                title: 'Xác nhận tài khoản',
+                html: `
+                <div class="user-card">
+                    <img src="${ava}" onerror="this.src='https://play-lh.googleusercontent.com/eRZLg00mAQGayCrFjDBklPIpW3qFHcmUs8PUQA4z7hVe-cDKMcRqecVHONAIexJGJZM'">
+                    <div>
+                        <h4>${name}</h4>
+                        <p>@${u.username}</p>
+                    </div>
+                </div>
+            `,
+                ...swalConfig,
+                showCancelButton: true,
+                confirmButtonText: 'Bắt đầu nâng cấp',
+                cancelButtonText: 'Huỷ'
+            }).then(r => r.isConfirmed && startProcess(u.username));
+        }
+
+        async function startProcess(user) {
+            try {
+                const res = await fetch('/api/restore', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: user }),
+                });
+                const data = await res.json();
+                if (res.ok && data.success) showQueue(data.client_id, user);
+                else Swal.fire({ icon: 'error', title: 'Lỗi', text: data.msg || "Hàng chờ đầy.", ...swalConfig });
+            } catch (e) {
+                Swal.fire({ icon: 'error', title: 'Lỗi', text: 'Không thể bắt đầu.', ...swalConfig });
+            }
+        }
+
+        function showQueue(cid, user) {
+            Swal.fire({
+                title: 'Hàng chờ xử lý',
+                html: `
+                    <div class="queue-wrap">
+                        <div class="q-pos" id="qPos">--</div>
+                        <div class="q-label">Vị trí hiện tại</div>
+                        <div class="q-bar-bg"><div id="qBar" class="q-bar-fill"></div></div>
+                        <div class="q-stats">
+                            <div>Chờ: <span id="qTotal" style="color:#fff">--</span></div>
+                            <div>Còn lại: <span id="qEta" style="color:#fff">--</span></div>
+                        </div>
+                    </div>
+                `,
+                ...swalConfig,
+                showConfirmButton: false,
+                allowOutsideClick: false
+            });
+            pollQueue(cid, user);
+        }
+
+        let countdown = null;
+        let etaVal = 0;
+
+        async function pollQueue(cid, user) {
+            try {
+                const res = await fetch('/api/queue/status', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ client_id: cid }),
+                });
+                const data = await res.json();
+                if (res.ok && data.success) {
+                    const pos = document.getElementById('qPos');
+                    const bar = document.getElementById('qBar');
+                    const tot = document.getElementById('qTotal');
+                    const eta = document.getElementById('qEta');
+
+                    if (data.status === 'completed') {
+                        clearInterval(countdown);
+                        Swal.fire({ icon: 'success', title: 'Thành công', text: 'Đã nâng cấp Locket Gold cho bạn!', ...swalConfig });
+                    } else if (data.status === 'error') {
+                        clearInterval(countdown);
+                        Swal.fire({ icon: 'error', title: 'Lỗi', text: data.error || 'Thất bại.', ...swalConfig });
+                    } else {
+                        if (pos) {
+                            pos.textContent = data.status === 'processing' ? '...' : `#${data.position}`;
+                            tot.textContent = data.total_queue;
+                            const perc = Math.max(5, (1 - (data.position / (data.total_queue + 1))) * 100);
+                            bar.style.width = `${perc}%`;
+                        }
+                        etaVal = data.estimated_time;
+                        updateTimeDisplay();
+                        clearInterval(countdown);
+                        if (etaVal > 0) countdown = setInterval(() => { if (etaVal > 0) { etaVal--; updateTimeDisplay(); } }, 1000);
+                        setTimeout(() => pollQueue(cid, user), 1000);
+                    }
+                }
+            } catch (e) { setTimeout(() => pollQueue(cid, user), 2000); }
+        }
+
+        function updateTimeDisplay() {
+            const el = document.getElementById('qEta');
+            if (!el) return;
+            if (etaVal <= 0) el.textContent = 'Sắp xong';
+            else if (etaVal < 60) el.textContent = `${etaVal}s`;
+            else el.textContent = `${Math.floor(etaVal / 60)}p ${etaVal % 60}s`;
+        }
+
+        document.getElementById("username").onkeyup = e => e.key === "Enter" && checkUser();
+    </script>
+</body>
+
+</html>
