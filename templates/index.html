@@ -4,169 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Locket Gold Unlocker</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
     <style>
         :root {
-            --bg: #0a0015;
-            --surface: rgba(20, 10, 40, 0.7);
-            --accent: #c084fc;
-            --gold: #ffd700;
-            --gradient: linear-gradient(135deg, #7c3aed, #ec4899, #f59e0b);
-            --text: #f0f0ff;
-            --text-muted: #a0a0cc;
-            --border: rgba(192, 132, 252, 0.2);
-            --glow: 0 0 20px rgba(192, 132, 252, 0.4);
-            --ease: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --bg: #0f1117;
+            --surface: #171b22;
+            --border: #2a3241;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --primary: #60a5fa;
+            --primary-dark: #3b82f6;
+            --gold: #fbbf24;
+            --radius: 16px;
+            --transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            background-image: radial-gradient(circle at 20% 30%, rgba(124,58,237,0.12), transparent 40%);
+            padding: 24px 16px;
+            line-height: 1.5;
         }
+
         .container {
             width: 100%;
-            max-width: 440px;
-            animation: floatIn 1.2s var(--ease);
+            max-width: 420px;
         }
-        @keyframes floatIn {
-            from { opacity: 0; transform: translateY(40px) scale(0.95); }
-            to   { opacity: 1; transform: translateY(0) scale(1); }
-        }
+
         header {
             text-align: center;
             margin-bottom: 48px;
         }
+
         .logo {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient);
-            border-radius: 50%;
-            margin: 0 auto 24px;
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            border-radius: 20px;
+            margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
-            font-weight: 800;
-            color: #000;
-            box-shadow: var(--glow), inset 0 4px 12px rgba(0,0,0,0.3);
-        }
-        h1 {
             font-size: 32px;
             font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: white;
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.18);
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
             margin-bottom: 8px;
         }
+
         header p {
             color: var(--text-muted);
             font-size: 15px;
         }
+
         .card {
             background: var(--surface);
-            backdrop-filter: blur(12px);
             border: 1px solid var(--border);
-            border-radius: 32px;
-            padding: 40px 32px;
-            box-shadow: var(--glow);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            margin-bottom: 32px;
         }
+
         .input-group {
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
+
         label {
-            font-size: 14px;
+            display: block;
+            font-size: 13px;
             font-weight: 600;
             color: var(--text-muted);
-            margin-bottom: 12px;
-            display: block;
+            margin-bottom: 10px;
         }
-        .input-pill {
-            background: rgba(255,255,255,0.05);
+
+        .input-wrapper {
+            background: #1e2533;
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 18px 24px;
-            transition: all 0.4s var(--ease);
+            border-radius: 14px;
+            padding: 0 18px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
         }
-        .input-pill:focus-within {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(192,132,252,0.15);
-            transform: translateY(-2px);
+
+        .input-wrapper:focus-within {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
         }
+
         input {
             background: none;
             border: none;
             color: var(--text);
+            font-size: 16px;
             width: 100%;
-            font-size: 17px;
             font-weight: 500;
         }
-        input::placeholder { color: rgba(240,240,255,0.3); }
+
+        input::placeholder {
+            color: #64748b;
+        }
+
         .btn-primary {
             width: 100%;
-            background: var(--gradient);
-            color: #000;
+            height: 56px;
+            background: var(--primary);
+            color: white;
             border: none;
-            border-radius: 20px;
-            padding: 20px;
-            font-size: 17px;
-            font-weight: 700;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s var(--ease);
+            transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            box-shadow: 0 8px 25px rgba(124,58,237,0.3);
+            gap: 10px;
         }
-        .btn-primary:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 16px 40px rgba(124,58,237,0.5);
+
+        .btn-primary:hover:not(:disabled) {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
         }
-        .btn-primary:disabled { opacity: 0.5; transform: none; cursor: not-allowed; }
+
+        .btn-primary:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
         .spinner {
             display: none;
             width: 20px;
             height: 20px;
-            border: 3px solid rgba(0,0,0,0.2);
-            border-top-color: #000;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top-color: white;
             border-radius: 50%;
-            animation: spin 0.9s linear infinite;
+            animation: spin 1s linear infinite;
         }
+
         @keyframes spin { to { transform: rotate(360deg); } }
+
         .info-section {
-            margin-top: 32px;
-            display: grid;
+            display: flex;
+            flex-direction: column;
             gap: 16px;
         }
-        .info-pill {
-            background: rgba(124,58,237,0.08);
+
+        .info-card {
+            background: #1e2533;
             border: 1px solid var(--border);
-            border-radius: 20px;
+            border-radius: var(--radius);
             padding: 20px;
-            backdrop-filter: blur(8px);
         }
-        .info-pill h3 {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--accent);
+
+        .info-card h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
             margin-bottom: 10px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
+
+        .info-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
         .config-link {
             display: block;
             text-align: center;
@@ -174,88 +199,116 @@
             color: var(--text-muted);
             font-size: 14px;
             text-decoration: none;
-            transition: 0.3s;
+            transition: var(--transition);
         }
-        .config-link:hover { color: var(--accent); }
+
+        .config-link:hover {
+            color: var(--primary);
+        }
+
         footer {
-            margin-top: 60px;
             text-align: center;
+            margin-top: 48px;
             font-size: 13px;
-            color: rgba(240,240,255,0.25);
+            color: #475569;
         }
-        footer a { color: inherit; text-decoration: none; }
-        footer a:hover { color: var(--text-muted); }
-        /* Queue styles */
-        .queue-wrap { padding: 40px 0; text-align: center; }
+
+        footer a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--text);
+        }
+
+        /* Queue */
         .q-pos {
-            font-size: 64px;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--gold);
+            text-align: center;
         }
-        .q-label { font-size: 13px; text-transform: uppercase; letter-spacing: 3px; color: var(--text-muted); margin: 12px 0 32px; }
+
+        .q-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin: 8px 0 24px;
+            text-align: center;
+        }
+
         .q-bar-bg {
-            height: 8px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 999px;
+            height: 6px;
+            background: #1e2533;
+            border-radius: 3px;
             overflow: hidden;
-            margin: 0 0 24px;
+            margin-bottom: 16px;
         }
+
         .q-bar-fill {
             height: 100%;
-            background: var(--gradient);
+            background: var(--primary);
             width: 0;
-            transition: width 1.2s var(--ease);
+            transition: width 0.8s ease-out;
+        }
+
+        .q-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: var(--text-muted);
         }
     </style>
 </head>
 <body>
+
     <div class="container">
         <header>
             <div class="logo">L</div>
-            <h1>Locket Gold Unlocker</h1>
-            <p>Nâng cấp tài khoản nhanh chóng & an toàn</p>
+            <h1>Locket Gold</h1>
+            <p>Nâng cấp tài khoản đơn giản & an toàn</p>
         </header>
 
         <div class="card">
             <div class="input-group">
-                <label for="username">@username của bạn</label>
-                <div class="input-pill">
-                    <input type="text" id="username" placeholder="Ví dụ: @tenban" autocomplete="off">
+                <label for="username">Tên người dùng</label>
+                <div class="input-wrapper">
+                    <input type="text" id="username" placeholder="@username của bạn" autocomplete="off">
                 </div>
             </div>
+
             <button class="btn-primary" id="btnAction" onclick="checkUser()">
-                <span id="btnText">BẮT ĐẦU NÂNG CẤP</span>
+                <span id="btnText">Tiếp tục</span>
                 <div class="spinner" id="btnLoader"></div>
             </button>
-            <a href="/download-config" class="config-link">
-                Tải file cấu hình chống thu hồi →
-            </a>
+
+            <a href="/download-config" class="config-link">Tải cấu hình chống thu hồi →</a>
         </div>
 
         <div class="info-section">
-            <div class="info-pill">
+            <div class="info-card">
                 <h3>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M12 16v-4M12 8h.01"/>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 16v-4M12 8h.01"></path>
                     </svg>
-                    Hướng dẫn nhanh
+                    Hướng dẫn
                 </h3>
-                <p>Nhập username → Xác nhận → Chờ hệ thống xử lý. Quá trình diễn ra hoàn toàn tự động.</p>
+                <p>Nhập username → Xác nhận → Chờ hệ thống xử lý tự động.</p>
             </div>
-            <div class="info-pill">
+
+            <div class="info-card">
                 <h3>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                        <line x1="12" y1="9" x2="12" y2="13"/>
-                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
                     </svg>
-                    Lưu ý quan trọng
+                    Lưu ý
                 </h3>
-                <p>Chỉ hỗ trợ iOS. Không đăng xuất tài khoản sau khi nâng cấp để giữ trạng thái Gold vĩnh viễn.</p>
+                <p>Chỉ hỗ trợ iOS. Không đăng xuất sau khi nâng cấp để giữ trạng thái Gold.</p>
             </div>
         </div>
 
@@ -264,14 +317,13 @@
         </footer>
     </div>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         const swalConfig = {
             customClass: {
-                popup: 'clean-popup',
-                confirmButton: 'clean-confirm',
-                cancelButton: 'clean-cancel'
+                popup: 'swal2-dark',
+                confirmButton: 'swal2-confirm-custom',
+                cancelButton: 'swal2-cancel-custom'
             },
             buttonsStyling: false
         };
@@ -321,18 +373,20 @@
             Swal.fire({
                 title: 'Xác nhận tài khoản',
                 html: `
-                    <div class="user-card" style="display:flex;align-items:center;gap:15px;background:rgba(0,0,0,0.2);padding:16px;border-radius:16px;text-align:left;margin-top:12px;">
-                        <img src="${ava}" onerror="this.src='https://play-lh.googleusercontent.com/eRZLg00mAQGayCrFjDBklPIpW3qFHcmUs8PUQA4z7hVe-cDKMcRqecVHONAIexJGJZM'" style="width:50px;height:50px;border-radius:50%;background:#333;">
+                    <div style="display:flex; align-items:center; gap:16px; background:#1e2533; padding:20px; border-radius:12px; margin:16px 0; border:1px solid #2a3241;">
+                        <img src="${ava}" onerror="this.src='https://play-lh.googleusercontent.com/eRZLg00mAQGayCrFjDBklPIpW3qFHcmUs8PUQA4z7hVe-cDKMcRqecVHONAIexJGJZM'" 
+                             style="width:60px; height:60px; border-radius:50%; object-fit:cover;">
                         <div>
-                            <h4 style="font-size:15px;margin-bottom:2px;">${name}</h4>
-                            <p style="font-size:13px;color:var(--text-muted);">@${u.username}</p>
+                            <div style="font-size:17px; font-weight:600; margin-bottom:4px;">${name}</div>
+                            <div style="font-size:15px; color:#94a3b8;">@${u.username}</div>
                         </div>
                     </div>
                 `,
-                ...swalConfig,
                 showCancelButton: true,
                 confirmButtonText: 'Bắt đầu nâng cấp',
-                cancelButtonText: 'Huỷ'
+                cancelButtonText: 'Huỷ',
+                reverseButtons: true,
+                ...swalConfig
             }).then(r => {
                 if (r.isConfirmed) startProcess(u.username);
             });
@@ -348,19 +402,15 @@
                 const data = await res.json();
 
                 if (res.ok && data.success) {
-                    // Thêm cảnh báo KHÔNG TẮT TRANG
                     Swal.fire({
-                        icon: 'warning',
-                        title: 'Quan trọng!',
-                        html: 'Vui lòng <strong>KHÔNG tắt</strong>, <strong>đóng tab</strong> hoặc <strong>refresh trang</strong> trong lúc đang xử lý.<br><br>Nếu đóng trang, quá trình sẽ bị gián đoạn và bạn phải làm lại từ đầu.',
+                        icon: 'info',
+                        title: 'Quan trọng',
+                        html: 'Vui lòng <b>không tắt</b> hoặc <b>refresh</b> trang trong quá trình xử lý.<br>Nếu đóng tab, bạn sẽ phải bắt đầu lại từ đầu.',
                         allowOutsideClick: false,
-                        showConfirmButton: true,
                         confirmButtonText: 'Tôi hiểu, tiếp tục',
                         ...swalConfig
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            showQueue(data.client_id, user);
-                        }
+                    }).then(r => {
+                        if (r.isConfirmed) showQueue(data.client_id, user);
                     });
                 } else {
                     Swal.fire({ icon: 'error', title: 'Lỗi', text: data.msg || "Hàng chờ đầy.", ...swalConfig });
@@ -372,22 +422,24 @@
 
         function showQueue(cid, user) {
             Swal.fire({
-                title: 'Hàng chờ xử lý',
+                title: 'Đang xử lý',
                 html: `
-                    <div class="queue-wrap">
-                        <div class="q-pos" id="qPos">--</div>
-                        <div class="q-label">Vị trí hiện tại</div>
-                        <div class="q-bar-bg"><div id="qBar" class="q-bar-fill"></div></div>
-                        <div class="q-stats" style="display:flex;justify-content:space-between;font-size:14px;color:var(--text-muted);">
-                            <div>Chờ: <span id="qTotal" style="color:#fff">--</span></div>
-                            <div>Còn lại: <span id="qEta" style="color:#fff">--</span></div>
+                    <div style="padding:32px 0; text-align:center;">
+                        <div id="qPos" style="font-size:56px; font-weight:700; color:#fbbf24;">--</div>
+                        <div style="font-size:13px; text-transform:uppercase; letter-spacing:1.2px; color:#94a3b8; margin:8px 0 24px;">Vị trí hàng chờ</div>
+                        <div style="height:6px; background:#1e2533; border-radius:3px; overflow:hidden; margin-bottom:16px;">
+                            <div id="qBar" style="height:100%; background:#60a5fa; width:0%; transition:width 0.8s ease-out;"></div>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:14px; color:#94a3b8;">
+                            <div>Tổng: <span id="qTotal" style="color:#e2e8f0">--</span></div>
+                            <div>Còn lại: <span id="qEta" style="color:#e2e8f0">--</span></div>
                         </div>
                     </div>
                 `,
-                ...swalConfig,
                 showConfirmButton: false,
                 allowOutsideClick: false,
-                allowEscapeKey: false
+                allowEscapeKey: false,
+                ...swalConfig
             });
 
             pollQueue(cid, user);
@@ -413,19 +465,19 @@
 
                     if (data.status === 'completed') {
                         clearInterval(countdown);
-                        Swal.fire({ icon: 'success', title: 'Thành công', text: 'Đã nâng cấp Locket Gold cho bạn!', ...swalConfig });
+                        Swal.fire({ icon: 'success', title: 'Hoàn tất', text: 'Đã nâng cấp Locket Gold thành công!', ...swalConfig });
                     } else if (data.status === 'error') {
                         clearInterval(countdown);
-                        Swal.fire({ icon: 'error', title: 'Lỗi', text: data.error || 'Thất bại.', ...swalConfig });
+                        Swal.fire({ icon: 'error', title: 'Lỗi', text: data.error || 'Xảy ra lỗi.', ...swalConfig });
                     } else {
                         if (pos) {
                             pos.textContent = data.status === 'processing' ? '...' : `#${data.position}`;
                             tot.textContent = data.total_queue;
-                            const perc = Math.max(5, (1 - (data.position / (data.total_queue + 1))) * 100);
+                            const perc = Math.max(5, (1 - (data.position / (data.total_queue || 1))) * 100);
                             bar.style.width = `${perc}%`;
                         }
 
-                        etaVal = data.estimated_time;
+                        etaVal = data.estimated_time || 0;
                         updateTimeDisplay();
 
                         clearInterval(countdown);
@@ -438,25 +490,20 @@
                             }, 1000);
                         }
 
-                        setTimeout(() => pollQueue(cid, user), 1000);
+                        setTimeout(() => pollQueue(cid, user), 1200);
                     }
                 }
             } catch (e) {
-                setTimeout(() => pollQueue(cid, user), 2000);
+                setTimeout(() => pollQueue(cid, user), 2500);
             }
         }
 
         function updateTimeDisplay() {
             const el = document.getElementById('qEta');
             if (!el) return;
-
-            if (etaVal <= 0) {
-                el.textContent = 'Sắp xong';
-            } else if (etaVal < 60) {
-                el.textContent = `${etaVal}s`;
-            } else {
-                el.textContent = `${Math.floor(etaVal / 60)}p ${etaVal % 60}s`;
-            }
+            if (etaVal <= 0) el.textContent = 'Sắp xong';
+            else if (etaVal < 60) el.textContent = `${etaVal}s`;
+            else el.textContent = `${Math.floor(etaVal / 60)} phút ${etaVal % 60}s`;
         }
 
         document.getElementById("username").onkeyup = e => {
