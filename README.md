@@ -344,17 +344,10 @@ This project is created for **educational purposes only** to demonstrate:
 - Use responsibly and in compliance with Locket's Terms of Service
 - The developers are not responsible for any misuse of this tool
 
-## Credits
-
-- **Developer**: [Trong Thao Dev](https://github.com/trongthaohub)
-- **Design**: Modern glassmorphism with gradient accents
-- **Font**: [Outfit](https://fonts.google.com/specimen/Outfit) by Google Fonts
-- **Icons**: SVG icons from various sources
-
 ## License
 
 This project is provided as-is for educational purposes. Use at your own discretion.
 
 ---
 
-Made with ❤️ by [Trong Thao Dev](https://github.com/trongthaohub)
+Made with ❤️ by [Lê Trọng Truyền](https://github.com/letrongtruyen)
